@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0c192c;
+  cursor: none;
+  font-family: "Quantico", sans-serif;
+}
+
+.box {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #ff2770 0%,
+    #ff2770 5%,
+    transparent 5%,
+    transparent 35%,
+    #ff2770 50%
+  );
+  animation: animate 4s linear infinite;
+  border-radius: 20px;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #45f3ff 0%,
+    #45f3ff 5%,
+    transparent 5%,
+    transparent 35%,
+    #45f3ff 50%
+  );
+  animation: animate 4s linear infinite;
+  border-radius: 20px;
+  animation-delay: -1s;
+}
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes animate {
+  0% {
+    --a: 0deg;
+  }
+  100% {
+    --a: 360deg;
+  }
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  background: #2d2d39;
+  border-radius: 15px;
+  border: 4px solid #25252b;
+}
+
+.box form {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+.box form h2 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.box form input {
+  position: relative;
+  width: 85%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  cursor: none;
+}
+
+.box form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.box form input[type="submit"] {
+  font-weight: 600;
+  background: #fff;
+  color: #2d2d39;
+  cursor: none;
+  transition: 0.5s;
+}
+
+.box form input[type="submit"]:hover {
+  background: #ff2770;
+}
+
+.box form a {
+  text-decoration: none;
+  font-weight: 500;
+  cursor: none;
+}
+
+#cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid #0f0;
+  border-left: 5px solid #0f0;
+  transform-origin: top;
+  transform: translate(-1px, 5px) rotate(15deg) scale(0);
+  transition: 0.1s;
+  pointer-events: none;
+  animation: animateCursor 5s linear infinite;
+  z-index: 10000;
+}
+
+#cursor::before {
+  content: "";
+  position: absolute;
+  left: -2.5px;
+  width: 5px;
+  height: 30px;
+  background: #0f0;
+  transform-origin: top;
+  transform: rotate(316deg);
+}
+
+body:hover #cursor {
+  transform: translate(-1px, 5px) rotate(15deg) scale(1);
+}
+
+@keyframes animateCursor {
+  0% {
+    filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(0deg);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(360deg);
+  }
+}
