@@ -8,7 +8,7 @@
 
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
   background: #0c192c;
@@ -17,9 +17,10 @@ body {
 }
 
 .box {
+  margin-top: 10px;
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 28em;
+  height: 37.5em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +33,16 @@ body {
     #ff2770 50%
   );
   animation: animate 4s linear infinite;
-  border-radius: 20px;
+  clip-path: polygon(
+    20px 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    20px 100%,
+    0 calc(100% - 20px),
+    0 20px
+  );
 }
 
 .box::before {
@@ -49,9 +59,19 @@ body {
     #45f3ff 50%
   );
   animation: animate 4s linear infinite;
-  border-radius: 20px;
+  clip-path: polygon(
+    20px 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    20px 100%,
+    0 calc(100% - 20px),
+    0 20px
+  );
   animation-delay: -1s;
 }
+
 @property --a {
   syntax: "<angle>";
   inherits: false;
@@ -62,6 +82,7 @@ body {
   0% {
     --a: 0deg;
   }
+
   100% {
     --a: 360deg;
   }
@@ -72,8 +93,16 @@ body {
   position: absolute;
   inset: 6px;
   background: #2d2d39;
-  border-radius: 15px;
-  border: 4px solid #25252b;
+  clip-path: polygon(
+    20px 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    20px 100%,
+    0 calc(100% - 20px),
+    0 20px
+  );
 }
 
 .box form {
@@ -86,47 +115,113 @@ body {
   gap: 20px;
   padding: 0 40px;
   z-index: 1000;
+  color: #fff;
 }
 
-.box form h2 {
-  color: #fff;
+.box form .logo {
+  display: flex;
   font-weight: 600;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+
+.logo span:nth-child(even) {
+  color: #ff2770;
+}
+
+.logo span:nth-child(odd) {
+  color: #45f3ff;
+}
+
+.inputBox {
+  position: relative;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.inputBox label {
+  cursor: none;
+}
+
+.inputBox i {
+  position: absolute;
+  right: 15px;
+  bottom: 8px;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.3s;
+}
+
+.box form input:focus ~ i,
+.box form input:valid ~ i {
+  color: #45f3ff;
+}
+
+.labelPassword {
+  display: flex;
+  justify-content: space-between;
 }
 
 .box form input {
-  position: relative;
-  width: 85%;
+  width: 100%;
   background: rgba(255, 255, 255, 0.1);
   padding: 10px 15px;
   border: none;
   outline: none;
-  border-radius: 5px;
   color: #fff;
-  font-size: 1em;
+  border-radius: 5px;
+  font-size: 14px;
   letter-spacing: 0.05em;
   cursor: none;
+}
+
+.box form input:focus,
+.box form input:valid {
+  border: 2px solid #45f3ff;
 }
 
 .box form input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.box form input[type="submit"] {
-  font-weight: 600;
-  background: #fff;
-  color: #2d2d39;
-  cursor: none;
-  transition: 0.5s;
+.login {
+  width: 85%;
 }
 
-.box form input[type="submit"]:hover {
-  background: #ff2770;
+.box form .account button:hover {
+  color: black;
 }
 
-.box form a {
+.box form .account button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #45f3ff;
+  z-index: -1;
+  transition: transform 1s;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+}
+
+.box form .account button:hover::before {
+  transform: scaleX(1);
+}
+
+a {
   text-decoration: none;
   font-weight: 500;
   cursor: none;
+  color: #ff2770;
+}
+
+a:hover {
+  color: #45f3ff;
 }
 
 #cursor {
@@ -166,4 +261,102 @@ body:hover #cursor {
   100% {
     filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0) drop-shadow(0 0 30px #0f0) hue-rotate(360deg);
   }
+}
+
+.line {
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.line::after,
+.line::before {
+  content: "";
+  border-bottom: 1px solid #fff;
+  flex: 1 0 auto;
+  height: 0.5em;
+  margin: 0;
+}
+
+.line span {
+  margin-top: -2.5px;
+  text-align: center;
+  flex: 0.2 0 auto;
+}
+
+.account {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notching {
+  background-color: #45f3ff;
+  padding: 2px;
+  clip-path: polygon(
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 10px
+  );
+}
+
+.notching.login button {
+  justify-content: center;
+  font-weight: 700;
+  background: #45f3ff;
+  color: black;
+  transition: 0.6s;
+}
+
+.notching.login button:hover {
+  background: #2d2d39;
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  background: linear-gradient(to right, #45f3ff 15%, #2d2d39 15%);
+  color: #fff;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  padding: 10px 12px;
+  cursor: none;
+  font-size: 1em;
+  border: none;
+  clip-path: polygon(
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 10px
+  );
+}
+
+.account img {
+  width: 20px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 24px;
+  color: #45f3ff;
+}
+
+.footer a {
+  margin: 0 10px;
 }
