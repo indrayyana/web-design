@@ -8,7 +8,6 @@
 
 body {
   min-height: 100vh;
-  background: #0c192c;
   cursor: none;
   overflow: none;
   font-family: "Quantico", sans-serif;
@@ -18,7 +17,12 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  /* background-color: red; */
 }
 
 canvas {
@@ -63,11 +67,43 @@ body:hover #cursor {
   }
 }
 
+.trapesium {
+  display: flex;
+  justify-content: center;
+  background-color: #45f3ff;
+  padding: 2px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 70px),
+    calc(100% - 70px) 100%,
+    70px 100%,
+    0 calc(100% - 70px),
+    0 70px
+  );
+  width: 20em;
+  height: 3.2em;
+  position: absolute;
+  top: 0;
+  padding-top: 0;
+}
+
 .logo {
-  margin: 0 30px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   display: flex;
+  width: 10em;
+  justify-content: center;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 70px),
+    calc(100% - 70px) 100%,
+    70px 100%,
+    0 calc(100% - 70px),
+    0 70px
+  );
+  background-color: black;
 }
 
 .logo span:nth-child(even) {
@@ -78,11 +114,157 @@ body:hover #cursor {
   color: #45f3ff;
 }
 
+.bg-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26em;
+  height: 13em;
+  background-size: 70% 70%;
+  background-image: radial-gradient(circle at 100% 100%, transparent 0, transparent 32px, #45f3ff 33px),
+    radial-gradient(circle at 0 0, transparent 0, transparent 32px, #45f3ff 33px),
+    radial-gradient(circle at 100% 0, transparent 0, transparent 32px, #45f3ff 33px),
+    radial-gradient(circle at 0 100%, transparent 0, transparent 32px, #45f3ff 33px);
+  background-repeat: no-repeat;
+  background-position: right bottom, left top, right top, left bottom;
+}
+
 .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  color: #fff;
+  width: 25.7em;
+  height: 12.7em;
+  background-size: 70% 70%;
+  background-image: radial-gradient(circle at 100% 100%, transparent 0, transparent 32px, black 33px),
+    radial-gradient(circle at 0 0, transparent 0, transparent 32px, black 33px),
+    radial-gradient(circle at 100% 0, transparent 0, transparent 32px, black 33px),
+    radial-gradient(circle at 0 100%, transparent 0, transparent 32px, black 33px);
+  background-repeat: no-repeat;
+  background-position: right bottom, left top, right top, left bottom;
+}
+
+.text {
+  width: fit-content;
+  border-right: 3px solid #45f3ff;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(18), blinking 0.4s step-end infinite alternate;
+}
+
+@keyframes blinking {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 28em;
   margin: 30px;
 }
 
-.content button {
+.notching {
+  background-color: #45f3ff;
+  padding: 2px;
+  clip-path: polygon(
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 10px
+  );
+}
+
+.menu button {
   cursor: none;
-  background-color: red;
+  width: 12em;
+  background: black;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 50px;
+  font-size: 1em;
+  border: none;
+  clip-path: polygon(
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 10px
+  );
+  transition: 0.5s;
+}
+
+.menu button:hover {
+  color: black;
+  background: #45f3ff;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 0;
+  padding-top: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
+  color: #45f3ff;
+  width: 100%;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  clip-path: polygon(
+    70px 0,
+    calc(100% - 70px) 0,
+    100% 50px,
+    100% calc(100% - 50px),
+    100% 100%,
+    0 100%,
+    0 50px
+  );
+  background: #45f3ff;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  clip-path: polygon(
+    70px 0,
+    calc(100% - 70px) 0,
+    100% 50px,
+    100% calc(100% - 50px),
+    100% 100%,
+    0 100%,
+    0 50px
+  );
+  background-color: black;
+}
+
+.footer a {
+  margin: 50px 10px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: none;
+  color: #ff2770;
+}
+
+a:hover {
+  color: #45f3ff;
 }

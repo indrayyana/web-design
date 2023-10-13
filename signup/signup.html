@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="box">
-      <form action="#">
+      <form action="" onsubmit="return validatePassword();">
         <div class="logo">
           <span>G</span>
           <span>e</span>
@@ -26,6 +26,7 @@
           <label for="password">Password</label>
           <input type="password" required placeholder="Enter 8 character or more" id="inputPassword" />
           <i class="fas fa-eye-slash Eyecon"></i>
+          <p id="message"></p>
         </div>
         <div class="notching signup">
           <button type="submit">Create Account</button>
