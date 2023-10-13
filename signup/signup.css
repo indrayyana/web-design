@@ -121,7 +121,7 @@ body {
 .box form .logo {
   display: flex;
   font-weight: 600;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   font-size: 1.5em;
 }
 
@@ -154,20 +154,9 @@ body {
   transition: 0.3s;
 }
 
-.inputBox p {
-  font-size: 12px;
-  color: #ff2770;
-  transition: 0.3s;
-}
-
 .box form input:focus ~ i,
 .box form input:valid ~ i {
   color: #45f3ff;
-}
-
-.labelPassword {
-  display: flex;
-  justify-content: space-between;
 }
 
 .box form input {
@@ -192,7 +181,7 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.login {
+.signup {
   width: 85%;
 }
 
@@ -316,7 +305,7 @@ body:hover #cursor {
   );
 }
 
-.notching.login button {
+.notching.signup button {
   justify-content: center;
   font-weight: 700;
   background: #45f3ff;
@@ -324,7 +313,7 @@ body:hover #cursor {
   transition: 0.6s;
 }
 
-.notching.login button:hover {
+.notching.signup button:hover {
   background: #2d2d39;
   color: #fff;
 }

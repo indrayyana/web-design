@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   background: #0c192c;
   cursor: none;
+  overflow: none;
   font-family: "Quantico", sans-serif;
 }
 
@@ -20,36 +21,8 @@ body {
   overflow: hidden;
 }
 
-.bubbles {
-  position: relative;
-  display: flex;
-  z-index: -999;
-}
-
-.bubbles span {
-  position: relative;
-  width: 25px;
-  height: 25px;
-  background: #4fc3dc;
-  margin: 0 4px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
-  animation: animate 15s linear infinite;
-  animation-duration: calc(125s / var(--i));
-}
-
-.bubbles span:nth-child(even) {
-  background: #ff2d75;
-  box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(100vh) scale(0);
-  }
-  100% {
-    transform: translateY(-10vh) scale(1);
-  }
+canvas {
+  position: fixed;
 }
 
 #cursor {
@@ -97,31 +70,12 @@ body:hover #cursor {
   display: flex;
 }
 
-.logo span {
-  animation: animateLogo 3s linear infinite;
-  animation-delay: calc(0.1s * var(--i));
-  background-clip: text;
+.logo span:nth-child(even) {
+  color: #ff2770;
 }
 
-@keyframes animateLogo {
-  0% {
-    color: #fff;
-    filter: blur(0.6px) hue-rotate(0deg);
-    text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff, 0 0 80px #00b3ff, 0 0 120px #00b3ff,
-      0 0 200px #00b3ff, 0 0 300px #00b3ff, 0 0 400px #00b3ff;
-  }
-  30%,
-  70% {
-    color: #fff;
-    filter: blur(0.6px) hue-rotate(360deg);
-    text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff, 0 0 80px #00b3ff, 0 0 120px #00b3ff,
-      0 0 200px #00b3ff;
-  }
-  100% {
-    color: transparent;
-    box-shadow: none;
-    filter: blur(2px) hue-rotate(0deg);
-  }
+.logo span:nth-child(odd) {
+  color: #45f3ff;
 }
 
 .content {
@@ -130,4 +84,5 @@ body:hover #cursor {
 
 .content button {
   cursor: none;
+  background-color: red;
 }

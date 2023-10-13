@@ -4,10 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GePeTe</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" href="../assets/fontawesome-free-5.15.1-web/css/all.min.css" />
   </head>
   <body>
-    <canvas id="canvas"></canvas>
+    <div class="box">
+      <form action="#">
+        <div class="logo">
+          <span>G</span>
+          <span>e</span>
+          <span>P</span>
+          <span>e</span>
+          <span>T</span>
+          <span>e</span>
+        </div>
+        <div class="inputBox">
+          <label for="email">Email Address</label>
+          <input type="email" required placeholder="you@example.com" />
+        </div>
+        <div class="inputBox">
+          <label for="password">Password</label>
+          <input type="password" required placeholder="Enter 8 character or more" id="inputPassword" />
+          <i class="fas fa-eye-slash Eyecon"></i>
+        </div>
+        <div class="notching signup">
+          <button type="submit">Create Account</button>
+        </div>
+        <p>Already have an account? <a href="../login/login.html">Log In</a></p>
+        <div class="line">
+          <span>OR</span>
+        </div>
+        <div class="account">
+          <div class="notching">
+            <button type="submit">
+              <img src="../assets/image/google.png" alt="Google" /><span>Continue with Google</span>
+            </button>
+          </div>
+          <div class="notching">
+            <button type="submit">
+              <img src="../assets/image/microsoft.png" alt="Microsoft" /><span
+                >Continue with Microsoft Account</span
+              >
+            </button>
+          </div>
+          <div class="notching">
+            <button type="submit">
+              <img src="../assets/image/apple.png" alt="Apple" /><span>Continue with Apple</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="footer">
+      <a href="#">Terms of use</a>
+      |
+      <a href="#">Privacy policy</a>
+    </div>
     <div id="cursor"></div>
     <script src="main.js"></script>
   </body>

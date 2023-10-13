@@ -20,3 +20,16 @@ Eyecon.addEventListener("click", () => {
     Eyecon.classList.add("fa-eye-slash");
   }
 });
+
+function validatePassword() {
+  const passwordInput = document.getElementById("inputPassword");
+  const passwordMessage = document.getElementById("message");
+
+  if (passwordInput.value.length >= 8) {
+    return true;
+  } else {
+    passwordMessage.textContent = "The password field must be at least 8 characters.";
+    Eyecon.style.bottom = "30px";
+    return false;
+  }
+}
