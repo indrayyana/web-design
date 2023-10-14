@@ -149,7 +149,7 @@ body {
   position: absolute;
   right: 15px;
   bottom: 12px;
-  font-size: 22px;
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.5);
   transition: 0.3s;
 }
@@ -163,6 +163,7 @@ body {
 .box form input:focus ~ i,
 .box form input:valid ~ i {
   color: #45f3ff;
+  bottom: 14px;
 }
 
 .box form input {

@@ -107,11 +107,28 @@ body:hover #cursor {
 }
 
 .logo span:nth-child(even) {
-  color: #ff2770;
+  color: #ff5d93;
 }
 
 .logo span:nth-child(odd) {
+  color: #77f6ff;
+}
+
+.neon {
+  color: #77f6ff;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 50px;
+  text-shadow: 0 0 20px #45f3ff;
+}
+
+.neon::after {
+  content: attr(data-text);
+  position: absolute;
+  margin-left: -5.56em;
+  z-index: 1;
   color: #45f3ff;
+  filter: blur(15px);
 }
 
 .bg-content {
@@ -119,51 +136,60 @@ body:hover #cursor {
   justify-content: center;
   align-items: center;
   width: 26em;
-  height: 13em;
-  background-size: 70% 70%;
-  background-image: radial-gradient(circle at 100% 100%, transparent 0, transparent 32px, #45f3ff 33px),
-    radial-gradient(circle at 0 0, transparent 0, transparent 32px, #45f3ff 33px),
-    radial-gradient(circle at 100% 0, transparent 0, transparent 32px, #45f3ff 33px),
-    radial-gradient(circle at 0 100%, transparent 0, transparent 32px, #45f3ff 33px);
-  background-repeat: no-repeat;
-  background-position: right bottom, left top, right top, left bottom;
+  height: 10em;
+  margin-top: -1.3em;
+  background-color: #45f3ff;
+  clip-path: polygon(
+    20px 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    20px 100%,
+    0 calc(100% - 20px),
+    0 20px
+  );
 }
 
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1em;
   color: #fff;
   width: 25.7em;
-  height: 12.7em;
-  background-size: 70% 70%;
-  background-image: radial-gradient(circle at 100% 100%, transparent 0, transparent 32px, black 33px),
-    radial-gradient(circle at 0 0, transparent 0, transparent 32px, black 33px),
-    radial-gradient(circle at 100% 0, transparent 0, transparent 32px, black 33px),
-    radial-gradient(circle at 0 100%, transparent 0, transparent 32px, black 33px);
-  background-repeat: no-repeat;
-  background-position: right bottom, left top, right top, left bottom;
+  height: 9.7em;
+  background-color: black;
+  clip-path: polygon(
+    20px 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    20px 100%,
+    0 calc(100% - 20px),
+    0 20px
+  );
 }
 
 .text {
   width: fit-content;
-  border-right: 3px solid #45f3ff;
-  overflow: hidden;
   white-space: nowrap;
-  animation: typing 2s steps(18), blinking 0.4s step-end infinite alternate;
-}
-
-@keyframes blinking {
-  50% {
-    border-color: transparent;
-  }
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 70px),
+    calc(100% - 70px) 100%,
+    70px 100%,
+    0 calc(100% - 70px),
+    0 70px
+  );
+  background: #45f3ff;
+  width: 20em;
+  height: 3.2em;
+  display: flex;
+  justify-content: center;
 }
 
 .menu {
