@@ -353,8 +353,6 @@ button {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
   padding: 10px 24px;
   color: #45f3ff;
 }
